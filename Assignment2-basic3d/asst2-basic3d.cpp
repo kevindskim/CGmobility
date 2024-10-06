@@ -164,11 +164,12 @@ struct Geometry {
       }
 
       void draw(const ShaderState& curSS) {
+
+        // bind vao
+        glBindVertexArray(vao); // Bind VAO before drawing, added by DS on oct6, 2024
         // Enable the attributes used by our shader
         safe_glEnableVertexAttribArray(curSS.h_aPosition);
         safe_glEnableVertexAttribArray(curSS.h_aNormal);
-
-        glBindVertexArray(vao); // Bind VAO before drawing, added by DS on oct6, 2024
 
         // bind vbo
         glBindBuffer(GL_ARRAY_BUFFER, vbo);
@@ -301,8 +302,6 @@ static void display() {
   drawStuff();
 
   glutSwapBuffers();    // show the back buffer (where we rendered stuff)
-
-  glutPostRedisplay();  // added by ds, to make the screen update for a ground at first
 
   checkGlErrors();
 }
