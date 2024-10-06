@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="asst1.cpp">
+    <ClCompile Include="asst2-basic3d.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="glsupport.cpp">
+    <ClCompile Include="glsupport2.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="ppm.cpp">
@@ -26,7 +26,16 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="glsupport.h">
+    <ClInclude Include="cvec.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="geometrymaker.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="glsupport2.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="matrix4.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="ppm.h">

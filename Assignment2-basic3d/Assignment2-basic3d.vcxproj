@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{5903cb40-aa91-4a76-bbe2-2198ec5d7eda}</ProjectGuid>
-    <RootNamespace>Assignment1</RootNamespace>
+    <ProjectGuid>{2eca048e-d86b-4282-96eb-ac94e6303da3}</ProjectGuid>
+    <RootNamespace>Assignment2basic3d</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -104,12 +104,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\glew-2.2.0\include;$(SolutionDir)Dependencies\freeglut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\CodingStudy\OpenGL\KMU-CG-Mobility-2024\CGmobility\Dependencies\glew-2.2.0\include;D:\CodingStudy\OpenGL\KMU-CG-Mobility-2024\CGmobility\Dependencies\freeglut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\glew-2.2.0\lib\Release\x64;$(SolutionDir)Dependencies\freeglut\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\CodingStudy\OpenGL\KMU-CG-Mobility-2024\CGmobility\Dependencies\glew-2.2.0\lib\Release\x64;D:\CodingStudy\OpenGL\KMU-CG-Mobility-2024\CGmobility\Dependencies\freeglut\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glew32.lib;freeglut.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -130,12 +130,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="asst1.cpp" />
-    <ClCompile Include="glsupport.cpp" />
+    <ClCompile Include="asst2-basic3d.cpp" />
+    <ClCompile Include="glsupport2.cpp" />
     <ClCompile Include="ppm.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="glsupport.h" />
+    <ClInclude Include="cvec.h" />
+    <ClInclude Include="geometrymaker.h" />
+    <ClInclude Include="glsupport2.h" />
+    <ClInclude Include="matrix4.h" />
     <ClInclude Include="ppm.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
