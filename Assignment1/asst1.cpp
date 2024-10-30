@@ -109,7 +109,10 @@ static vector<shared_ptr<ShaderState> > g_shaderStates; // our global shader sta
 static shared_ptr<GlTexture> g_tex0, g_tex1; // our global texture instance
 
 struct SquareGeometry {
-  GlBufferObject posVbo, texVbo, colVbo;
+ 
+    GlVertexArrayObject vao; // vao is vertex array object
+    
+    GlBufferObject posVbo, texVbo, colVbo;
 
   SquareGeometry() {
     static GLfloat sqPos[12] = {
@@ -141,6 +144,9 @@ struct SquareGeometry {
       0, 1, 0,
       0, 1, 1
     };
+
+    // Now create the VAO and bind the VBO to it
+    glBindVertexArray(vao);
 
     glBindBuffer(GL_ARRAY_BUFFER, posVbo);
     glBufferData(
@@ -174,7 +180,7 @@ struct SquareGeometry {
     safe_glEnableVertexAttribArray(curSS.h_aTexCoord1);
     safe_glEnableVertexAttribArray(curSS.h_aColor);
 
-
+    glBindVertexArray(vao);
 
     glBindBuffer(GL_ARRAY_BUFFER, posVbo);
     safe_glVertexAttribPointer(curSS.h_aPosition,
@@ -350,7 +356,7 @@ static void initGlutState(int argc, char **argv) {
   glutInit(&argc,argv);
   glutInitDisplayMode(GLUT_RGBA|GLUT_DOUBLE|GLUT_DEPTH);
   glutInitWindowSize(g_width, g_height);      // create a window
-  glutCreateWindow("CS380: Hello World");    // title the window
+  glutCreateWindow("CS for Mobility: Hello World");    // title the window
 
   glutDisplayFunc(display);                   // display rendering callback
   glutReshapeFunc(reshape);                   // window reshape callback
@@ -433,6 +439,10 @@ int main(int argc, char **argv) {
     initGlutState(argc,argv);
 
     glewInit(); // load the OpenGL extensions
+
+    cout << "GL ver: " << glGetString(GL_VERSION) << "\n";
+    cout << "GLEW ver: " << glewGetString(GLEW_VERSION) << "\n";
+    cout << "GLSL ver: " << glGetString(GL_SHADING_LANGUAGE_VERSION) << "\n";
 
     cout << (g_Gl2Compatible ? "Will use OpenGL 2.x / GLSL 1.0" : "Will use OpenGL 3.x / GLSL 1.3") << endl;
     if ((!g_Gl2Compatible) && !GLEW_VERSION_3_0)
